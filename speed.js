@@ -1,17 +1,19 @@
-function carspeedchecker (speedcar){
-    if (speedcar<= 70){
-        return 'ok'
-    }else if (speedcar<=130){
-        return((speedcar-70)/5)+'demirerit points'
+const speedLimit = 70;
+const demeritPoint = 0;
 
-    }else {
-        return 'licence suspended'
-    }
-}
-function handleclick (events){
-    let speed = parseInt(document.getElementById('speed').value)
-    if (speed !== undefined){
-        let message = carspeedchecker(speed)
-        document.getElementById('Message').textContent = Message
-    }
-}
+function speed(x){
+  const difference = x - speedLimit;
+  const totalIncrement = difference / 5;
+  // print demerit point
+  for(var i = 0; i < totalIncrement; ++i){
+    demeritPoint++;
+  };
+  console.log('Total Demerit points are: ', demeritPoint);
+
+  demeritPoint > 12 ? console.log('License Suspended') : '';
+  x < 70 ? console.log('OK') : '';
+};
+
+speed(60);
+// speed(100);
+// speed(200);

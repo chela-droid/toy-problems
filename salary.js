@@ -116,8 +116,4 @@ function handleSalary(event){
     document.getElementById("paye")
     document.getElementById("TaxablePay")
     document.getElementById("Netpay")
-
-
-
-
-}
+    

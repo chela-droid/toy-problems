@@ -1,28 +1,29 @@
-names  = prompt ('marks');
-grades = prompt('grades');
+var warning = document.querySelector('.error'), 
+input = document.querySelector('input[type="number"'),
+ button = document.querySelector('button'), 
+ p = document.querySelector('#blank');
 
+input.addEventListener('input', function(){
+  const value = input.value;
 
-function promptmarks (){
-    marks = prompt ("enter the marks");
+});
+// A > 79, B- 60 - 79, C - 59 - 49, D - 40 - 49, E - <40
 
-if ((marks >=79) && (marks<= 100)){
-    console.log ('Grade is A');
-}
-else if ((marks>=60)&&(marks<=79)){
-    console.log ('Grade is B')
-}
-else if ((marks>=49) && (marks<=59)){
-    console.log ('Grade is C')
+function check(){
+  let value = input.value;
+  if(value < 0 || value > 100){
+    p.innerHTML = '';
+  }else if(value > 79 && value <= 100){
+     p.innerHTML = 'Your Grade is: A';
+  }else if(value >= 60 && value <=79){
+    p.innerHTML = 'Your Grade is: B';
+  } else if (value >= 49 && value <= 59) {
+    p.innerHTML = 'Your Grade is: C';
+  } else if (value >= 40 && value <= 49) {
+    p.innerHTML = 'Your Grade is: D';
+  }else{
+    p.innerHTML = 'Your Grade is: E';
+  }
+};
 
-}
-else if ((marks>=40) && (marks<=49)){
-    console.log ('Grade is D')
-}
-else if ((marks>=0) && (marks<=39)){
-    console.log ('Grade is E')
-}
-else{
-    console.log ('Grade not assigned')
-}
-
-}
+button.onclick = check;
